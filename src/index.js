@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import SearchBar from './components/search_bar'
 
-import App from './components/app';
-import reducers from './reducers';
+const YOUTUBE_KEY = process.env.REACT_APP_YOUTUBE_API_KEY
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+// Create a new component
+const App = () => {
+  return (
+    <div>
+    <SearchBar />
+    </div>
+  )
+}
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+//Take this component's generated HTML and put it on the top of the page
+ReactDOM.render(<App />, document.querySelector('.container'))
